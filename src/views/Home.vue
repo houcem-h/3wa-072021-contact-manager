@@ -1,15 +1,21 @@
 <template>
   <div class="home">
-    <ContactList :contactsList="contactsList"></ContactList>
+    <ul class="nav nav-tabs">
+      <li class="nav-item" v-for="tab in tabs" :key="tab" @click="currentTab = tab">
+        <a class="nav-link" :class="{active: currentTab== tab}">{{tab}}</a>
+      </li>
+    </ul>
+    <component :is="currentTabComponent" :contactsList="contactsList" class="py-3"></component>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import ContactList from "@/components/ContactList.vue";
+import Add from '@/components/Add.vue';
 export default {
   name: "Home",
-  components: { ContactList },
+  components: { ContactList, Add },
   data() {
     return {
       contactsList: [
@@ -44,7 +50,14 @@ export default {
           },
         },
       ],
+      currentTab: "ContactList",
+      tabs: ["ContactList", "Add"]
     };
   },
+    computed: {
+      currentTabComponent: function() {
+        return this.currentTab;
+      }
+    }
 };
 </script>
