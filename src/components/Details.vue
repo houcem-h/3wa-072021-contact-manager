@@ -1,10 +1,12 @@
 <template>
-  <h2>details component</h2>
+  <h2>{{ contact.name }}</h2>
 </template>
 
 <script>
 export default {
-
+    props: {
+        contact: Object
+    },
 }
 </script>
 
