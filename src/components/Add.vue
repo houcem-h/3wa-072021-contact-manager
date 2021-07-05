@@ -46,8 +46,10 @@ export default {
     },
     methods: {
         submitForm() {
-            this.newContact.id = uuidv4()
-            this.$emit('add-contact')
+            if (confirm('Add this contact ?')) {
+                this.newContact.id = uuidv4()
+                this.$emit('add-contact', this.newContact)
+            }
         }
     },
 }

@@ -65,8 +65,9 @@ export default {
     }
   },
   methods: {
-    addContact() {
-      alert('OK')
+    addContact(newContact) {
+      this.contactsList.unshift(newContact)
+      this.currentTab= "ContactList"
     }
   },
 };
