@@ -5,7 +5,12 @@
         <a class="nav-link" :class="{active: currentTab== tab}">{{tab}}</a>
       </li>
     </ul>
-    <component :is="currentTabComponent" :contactsList="contactsList" class="py-3"></component>
+    <component
+      :is="currentTabComponent"
+      :contactsList="contactsList"
+      @add-contact="addContact"
+      class="py-3"
+      ></component>
   </div>
 </template>
 
@@ -54,10 +59,15 @@ export default {
       tabs: ["ContactList", "Add"]
     };
   },
-    computed: {
-      currentTabComponent: function() {
-        return this.currentTab;
-      }
+  computed: {
+    currentTabComponent: function() {
+      return this.currentTab;
     }
+  },
+  methods: {
+    addContact() {
+      alert('OK')
+    }
+  },
 };
 </script>

@@ -47,7 +47,7 @@ export default {
     methods: {
         submitForm() {
             this.newContact.id = uuidv4()
-            console.log(this.newContact)
+            this.$emit('add-contact')
         }
     },
 }
