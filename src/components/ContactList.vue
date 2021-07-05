@@ -1,16 +1,16 @@
 <template>
   <div>
     <h1><fa-icon icon="address-book"></fa-icon> Contact List</h1>
-    <div class="row">
+    <div class="row" @mouseleave="currentContact = null">
       <div class="col-6">
-        <ul class="list-group" @mouseleave="currentContact = null">
+        <ul class="list-group">
       <li
         v-for="contact in contactsList"
         v-bind:key="contact.id"
         class="list-group-item"
         @mouseover="currentContact = contact"
       >
-        <fa-icon icon="user"></fa-icon> {{ contact.name }}
+        <fa-icon icon="address-card"></fa-icon> {{ contact.name }}
       </li>
     </ul>
       </div>
@@ -20,7 +20,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import Details from '@/components/Details.vue';
 export default {
