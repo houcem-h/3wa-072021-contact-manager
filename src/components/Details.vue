@@ -1,12 +1,13 @@
 <template>
-  <h1>Example component</h1>
+  <h2>details component</h2>
 </template>
 
 <script>
 export default {
-  name: "Example",
-};
+
+}
 </script>
 
 <style>
+
 </style>
